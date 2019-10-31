@@ -1,0 +1,85 @@
+<div class="main-w3layouts wrapper">
+		<h1>Lista de pessoas</h1>
+		<div class="main-agileinfolista">
+			<div class="agileits-top">
+				<a href="/pessoa" class="btn btn-success novoProd">Novo</a>
+				<table class="table table-bordered">
+					<thead>
+						<tr class="titulo">
+							<th scope="col">Id</th>
+							<th scope="col">Nome</th>
+							<th scope="col">E-mail</th>
+							<th scope="col">Telefone</th>
+							<th scope="col" colspan="2" class="acoes">Ações</th>
+						</tr>
+					</thead>
+					<tbody>
+            {{#each result}}
+						<tr>
+							<th scope="row">{{id}}</th>
+							<td>{{nome}}</td>
+							<td>{{email}}</td>
+							<td>{{telefone}}</td>
+							<td class="btnAcoes">
+								<a href="/pessoa/{{id}}" class="btn btn-success">
+									<i class="material-icons iconsLeft">create</i>
+									Editar
+								</a>
+							</td>
+							<td class="btnAcoes">
+								<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modalPessoa-{{id}}">
+									<i class="material-icons iconsLeft">delete</i>
+									Excluir
+								</button>
+							</td>
+						</tr>
+
+						<div class="modal fade" id="modalPessoa-{{id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+							<div class="modal-dialog" role="document">
+								<div class="modal-content">
+									<div class="modal-header">
+										<h5 class="modal-title" id="exampleModalLabel">
+											<i class="material-icons iconsLeft">report_problem</i>
+											Atenção!
+										</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+											<span aria-hidden="true">&times;</span>
+										</button>
+									</div>
+									<div class="modal-body">
+										Deseja excluir: {{nome}}
+									</div>
+									<div class="modal-footer">
+										<button type="button" class="btn btn-danger" data-dismiss="modal">
+											<i class="material-icons iconsLeft">close</i>
+											Não
+										</button>
+										<a href="/pessoa/delete/{{id}}" type="button" class="btn btn-success">
+											<i class="material-icons iconsLeft">check</i>
+											Sim
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+
+            {{else}}
+            <h4 class="mt-2">Nenhuma cadastro encontrado!</h4>
+            {{/each}}
+					</tbody>
+				</table>
+			</div>
+		</div>
+		<ul class="colorlib-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
